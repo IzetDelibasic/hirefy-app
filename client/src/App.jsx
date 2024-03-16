@@ -1,13 +1,38 @@
 // - React -
 import React from "react";
-import { Route, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // - Components -
-import HomePage from "./components/HomePage/HomePage";
-
+import {
+  HomePage,
+  LandingPage,
+  RegisterPage,
+  LoginPage,
+  DashboardPage,
+  ErrorPage,
+} from "./components";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <LandingPage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
+    ],
   },
 ]);
 
