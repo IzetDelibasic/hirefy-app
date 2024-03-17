@@ -24,9 +24,20 @@ const LandingPage = () => {
               algorithms, we find the perfect match between talent and
               companies, creating pathways to success for all.
             </p>
-            <button href="#" className="border-2 border-black p-4 bg-blue-500">
-              Register Now
-            </button>
+            <div>
+              <button
+                href="#"
+                className="border-2 border-black p-4 bg-blue-500 mr-4"
+              >
+                Register Now
+              </button>
+              <button
+                href="#"
+                className="border-2 border-black p-4 bg-blue-500"
+              >
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </div>
