@@ -12,7 +12,7 @@ const LandingPageAction = () => {
           iconClassName="group-hover:text-white ml-[10px]"
           title="Register"
           titleClassName="group-hover:text-white font-subtitle"
-          href="/contact"
+          href="/register"
         >
           <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
         </CustomButton>
@@ -22,6 +22,7 @@ const LandingPageAction = () => {
         iconClassName=""
         title="Login"
         titleClassName="group-hover:text-white font-subtitle"
+        href="/login"
       >
         <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
       </CustomButton>
