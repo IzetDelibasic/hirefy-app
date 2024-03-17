@@ -2,6 +2,8 @@ export { default as AddJobs } from "./AddJobs/AddJobs";
 
 export { default as Admin } from "./Admin/Admin";
 
+export { default as CustomButton } from "./CustomButton/CustomButton";
+
 export { default as DashboardPage } from "./DashboardPage/DashboardPage";
 
 export { default as DeleteJobs } from "./DeleteJobs/DeleteJobs";
@@ -15,6 +17,8 @@ export { default as HomePage } from "./HomePage/HomePage";
 export { default as JobsPage } from "./JobsPage/JobsPage";
 
 export { default as LandingPage } from "./LandingPage/LandingPage";
+
+export { default as LandingPageAction } from "./LandingPageAction/LandingPageAction";
 
 export { default as LoginPage } from "./LoginPage/LoginPage";
 

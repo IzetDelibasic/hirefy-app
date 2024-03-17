@@ -1,5 +1,6 @@
 import React from "react";
-import { logoImage } from "../../constants/ImagesConstant";
+import { LandingPageAction } from "..";
+import { logoImage, landingImage } from "../../constants/ImagesConstant";
 
 const LandingPage = () => {
   return (
@@ -10,34 +11,22 @@ const LandingPage = () => {
           Hirefy
         </div>
       </div>
-      <div className="flex items-center justify-center">
-        <div className="max-w-screen-lg mx-auto px-6 py-12 items-center text-center">
-          <div className="flex flex-col items-center">
-            <div className="">
-              <h1 className="text-3xl font-bold mb-4">
-                Welcome to <span className="text-blue-500">Hirefy</span>
-              </h1>
-            </div>
-            <p className="text-gray-600 mb-4">
+      <div className="flex items-center justify-center pt-[5rem]">
+        <div className="max-w-screen-lg flex lg:flex-row lg:justify-between flex-col-reverse justify-center mx-auto px-6 py-12 items-center text-center w-[80%]">
+          <div className="flex flex-col items-center lg:w-[50%] mr-20">
+            <h1 className="text-3xl font-bold mb-4">
+              Welcome to <span className="text-blue-500">Hirefy</span>
+            </h1>
+            <p className="text-gray-600 font-montserrat mb-4">
               In the world of full opportunities, Hirefy is your reliable
               partner in the quest for the perfect job. With our unique
               algorithms, we find the perfect match between talent and
               companies, creating pathways to success for all.
             </p>
-            <div>
-              <button
-                href="#"
-                className="border-2 border-black p-4 bg-blue-500 mr-4"
-              >
-                Register Now
-              </button>
-              <button
-                href="#"
-                className="border-2 border-black p-4 bg-blue-500"
-              >
-                Login
-              </button>
-            </div>
+            <LandingPageAction />
+          </div>
+          <div className="">
+            <img src={landingImage} alt="LandingImage" className="w-full" />
           </div>
         </div>
       </div>
