@@ -12,6 +12,8 @@ export { default as EditJobs } from "./EditJobs/EditJobs";
 
 export { default as ErrorPage } from "./DashboardPage/DashboardPage";
 
+export { default as FormRow } from "./FomRow/FormRow";
+
 export { default as HomePage } from "./HomePage/HomePage";
 
 export { default as JobsPage } from "./JobsPage/JobsPage";
