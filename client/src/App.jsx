@@ -11,7 +11,7 @@ import {
   ErrorPage,
   AddJobs,
   ProfilePage,
-  Stats,
+  StatsPage,
   JobsPage,
   Admin,
 } from "./components";
@@ -39,11 +39,11 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: AddJobs,
+            element: <AddJobs />,
           },
           {
             path: "stats",
-            element: <Stats />,
+            element: <StatsPage />,
           },
           {
             path: "profile",
