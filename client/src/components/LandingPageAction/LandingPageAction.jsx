@@ -8,7 +8,7 @@ const LandingPageAction = () => {
     <div className="flex flex-col items-center justify-center md:flex-row md:justify-center md:w-[30rem] lg:w-full w-[90%] mx-auto md:mx-0">
       <Link href="">
         <CustomButton
-          className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2.5rem] px-[3.5rem] md:px-[1rem] mr-0 mb-[20px] md:mb-0  rounded-[3rem] group overflow-hidden z-[1]"
+          className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2.5rem] px-[3.5rem] md:px-[1.5rem] mr-0 mb-[20px] md:mb-0  rounded-[3rem] group overflow-hidden z-[1]"
           iconClassName="group-hover:text-white ml-[10px]"
           title="Register"
           titleClassName="group-hover:text-white font-subtitle"
@@ -18,7 +18,7 @@ const LandingPageAction = () => {
         </CustomButton>
       </Link>
       <CustomButton
-        className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2rem] px-[5rem] md:px-[1rem] rounded-[3rem] group overflow-hidden z-[1] md:ml-[20px] hover:border-opacity-0 hover:border-transparent"
+        className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2rem] px-[4rem] md:px-[1.5rem] rounded-[3rem] group overflow-hidden z-[1] md:ml-[20px] hover:border-opacity-0 hover:border-transparent"
         iconClassName=""
         title="Login"
         titleClassName="group-hover:text-white font-subtitle"

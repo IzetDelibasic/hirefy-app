@@ -13,7 +13,7 @@ const LandingPage = () => {
       </div>
       <div className="flex items-center justify-center pt-[5rem]">
         <div className="max-w-screen-lg flex lg:flex-row lg:justify-between flex-col-reverse justify-center mx-auto px-6 py-12 items-center text-center w-[80%]">
-          <div className="flex flex-col items-center lg:w-[50%] mr-20">
+          <div className="flex flex-col items-center lg:w-[50%] lg:mr-20">
             <h1 className="text-3xl font-bold mb-4">
               Welcome to <span className="text-blue-500">Hirefy</span>
             </h1>
@@ -25,8 +25,12 @@ const LandingPage = () => {
             </p>
             <LandingPageAction />
           </div>
-          <div className="">
-            <img src={landingImage} alt="LandingImage" className="w-full" />
+          <div className="flex items-center justify-center">
+            <img
+              src={landingImage}
+              alt="LandingImage"
+              className="w-full md:w-[70%] lg:w-full"
+            />
           </div>
         </div>
       </div>
