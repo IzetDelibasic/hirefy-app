@@ -34,12 +34,16 @@ const DashboardPage = () => {
         logoutUser,
       }}
     >
-      <div>
-        <SmallSidebar />
-        <BigSidebar />
-        <div>
+      <div className="bg-gray-200 min-h-screen flex flex-col">
+        <div className="hidden lg:block">
+          <BigSidebar />
+        </div>
+        <div className="lg:hidden">
+          <SmallSidebar />
+        </div>
+        <div className="flex flex-col w-full">
           <Navbar />
-          <div>
+          <div className="flex flex-grow">
             <Outlet />
           </div>
         </div>
@@ -48,5 +52,5 @@ const DashboardPage = () => {
   );
 };
 
-export const useDashboarContext = () => useContext(DashboardContext);
+export const useDashboardContext = () => useContext(DashboardContext);
 export default DashboardPage;

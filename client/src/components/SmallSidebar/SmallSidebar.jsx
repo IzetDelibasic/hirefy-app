@@ -1,8 +1,8 @@
 import React from "react";
-import { useDashboarContext } from "../DashboardPage/DashboardPage";
+import { useDashboardContext } from "../DashboardPage/DashboardPage";
 
 const SmallSidebar = () => {
-  const data = useDashboarContext();
+  const data = useDashboardContext();
   console.log(data);
   return <div>SmallSidebar</div>;
 };
