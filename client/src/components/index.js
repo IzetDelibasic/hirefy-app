@@ -2,6 +2,8 @@ export { default as AddJobs } from "./AddJobs/AddJobs";
 
 export { default as Admin } from "./Admin/Admin";
 
+export { default as BigSidebar } from "./BigSidebar/BigSidebar";
+
 export { default as CustomButton } from "./CustomButton/CustomButton";
 
 export { default as DashboardPage } from "./DashboardPage/DashboardPage";
@@ -29,3 +31,5 @@ export { default as ProfilePage } from "./ProfilePage/ProfilePage";
 export { default as RegisterPage } from "./RegisterPage/RegisterPage";
 
 export { default as StatsPage } from "./StatsPage/StatsPage";
+
+export { default as SmallSidebar } from "./SmallSidebar/SmallSidebar";
