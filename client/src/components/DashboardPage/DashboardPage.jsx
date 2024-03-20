@@ -9,9 +9,14 @@ const DashboardContext = createContext();
 const DashboardPage = () => {
   const user = { name: "Izet" };
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
+  const [showBigSidebar, setShowBigSidebar] = useState(false);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);
+  };
+
+  const toggleBigSidebar = () => {
+    setShowBigSidebar(!showBigSidebar);
   };
 
   const logoutUser = async () => {
@@ -23,7 +28,9 @@ const DashboardPage = () => {
       value={{
         user,
         toggleSmallSidebar,
+        toggleBigSidebar,
         showSmallSidebar,
+        showBigSidebar,
         logoutUser,
       }}
     >
