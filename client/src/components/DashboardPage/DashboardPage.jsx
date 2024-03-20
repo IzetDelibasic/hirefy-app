@@ -8,15 +8,10 @@ const DashboardContext = createContext();
 
 const DashboardPage = () => {
   const user = { name: "Izet" };
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [showSmallSidebar, setShowSmallSidebar] = useState(false);
 
-  const toggleDarkTheme = () => {
-    console.log("Toggle dark theme.");
-  };
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
+  const toggleSmallSidebar = () => {
+    setShowSmallSidebar(!showSmallSidebar);
   };
 
   const logoutUser = async () => {
@@ -27,10 +22,8 @@ const DashboardPage = () => {
     <DashboardContext.Provider
       value={{
         user,
-        showSidebar,
-        isDarkTheme,
-        toggleDarkTheme,
-        toggleSidebar,
+        toggleSmallSidebar,
+        showSmallSidebar,
         logoutUser,
       }}
     >
@@ -38,14 +31,14 @@ const DashboardPage = () => {
         <div className="hidden lg:block">
           <BigSidebar />
         </div>
-        <div className="lg:hidden">
-          <SmallSidebar />
-        </div>
-        <div className="flex flex-col w-full">
-          <Navbar />
-          <div className="flex flex-grow">
-            <Outlet />
+        <div>
+          <div className="lg:hidden">
+            <SmallSidebar />
           </div>
+          <Navbar />
+        </div>
+        <div className="flex flex-grow">
+          <Outlet />
         </div>
       </div>
     </DashboardContext.Provider>
