@@ -29,8 +29,10 @@ const DashboardPage = () => {
         <div className="hidden lg:block">
           <BigSidebar />
         </div>
-        <div className="lg:hidden">
-          <SmallSidebar />
+        <div>
+          <div className="lg:hidden">
+            <SmallSidebar />
+          </div>
         </div>
         <Navbar />
         <div className="flex flex-grow">

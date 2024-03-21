@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDashboardContext } from "../DashboardPage/DashboardPage";
 import LinksConstant from "../../constants/LinksConstant";
 
-const NavLinks = () => {
+const NavLinks = ({ isBigSidebar }) => {
   const { toggleSmallSidebar, user } = useDashboardContext();
   return (
     <div className="mt-6">
@@ -14,7 +14,7 @@ const NavLinks = () => {
             <NavLink
               to={path}
               key={text}
-              onClick={toggleSmallSidebar}
+              onClick={isBigSidebar ? null : toggleSmallSidebar}
               className="flex justify-start items-center text-[1.2rem] ml-[1rem]"
             >
               <Icon className="mr-[1rem]" />
