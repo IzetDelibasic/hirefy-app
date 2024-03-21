@@ -1,8 +1,7 @@
 import React from "react";
-import { useDashboardContext } from "../DashboardPage/DashboardPage";
-import LinksConstant from "../../constants/LinksConstant";
-import { NavLink } from "react-router-dom";
 import { MdClose } from "react-icons/md";
+import { useDashboardContext } from "../DashboardPage/DashboardPage";
+import NavLinks from "../NavLinks/NavLinks";
 
 const SmallSidebar = () => {
   const { showSmallSidebar, toggleSmallSidebar } = useDashboardContext();
@@ -20,23 +19,7 @@ const SmallSidebar = () => {
             <MdClose />
           </button>
         </div>
-        <div className="mt-6">
-          <div className="space-y-2">
-            {LinksConstant.map((link) => {
-              const { text, path, icon: Icon } = link;
-              return (
-                <NavLink
-                  to={path}
-                  key={text}
-                  className="flex justify-start items-center text-[1.2rem] ml-[1rem]"
-                >
-                  <Icon className="mr-[1rem]" />
-                  {text}
-                </NavLink>
-              );
-            })}
-          </div>
-        </div>
+        <NavLinks />
       </div>
     </div>
   );

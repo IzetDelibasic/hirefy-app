@@ -26,6 +26,10 @@ export { default as LandingPageAction } from "./LandingPageAction/LandingPageAct
 
 export { default as LoginPage } from "./LoginPage/LoginPage";
 
+export { default as Navbar } from "./Navbar/Navbar";
+
+export { default as NavLinks } from "./NavLinks/NavLinks";
+
 export { default as ProfilePage } from "./ProfilePage/ProfilePage";
 
 export { default as RegisterPage } from "./RegisterPage/RegisterPage";

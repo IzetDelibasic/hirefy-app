@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import BigSidebar from "../BigSidebar/BigSidebar";
-import Navbar from "../Navbar/Navbar";
-import SmallSidebar from "../SmallSidebar/SmallSidebar";
+import { Navbar, BigSidebar, SmallSidebar } from "..";
 import { Outlet } from "react-router-dom";
 
 const DashboardContext = createContext();
@@ -31,12 +29,10 @@ const DashboardPage = () => {
         <div className="hidden lg:block">
           <BigSidebar />
         </div>
-        <div>
-          <div className="lg:hidden">
-            <SmallSidebar />
-          </div>
-          <Navbar />
+        <div className="lg:hidden">
+          <SmallSidebar />
         </div>
+        <Navbar />
         <div className="flex flex-grow">
           <Outlet />
         </div>
