@@ -17,12 +17,12 @@ const BigSidebar = () => {
           <h2 className="text-lg font-medium font-montserrat uppercase pl-4 group-hover:text-white">
             Hirefy
           </h2>
-          <button
-            className="hover:text-white ease-in-out duration-300"
+          <div
+            className="hover:text-white ease-in-out duration-300 cursor-pointer"
             onClick={toggleSmallSidebar}
           >
             <MdClose />
-          </button>
+          </div>
         </div>
         <NavLinks />
       </div>
