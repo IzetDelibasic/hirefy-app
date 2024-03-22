@@ -7,24 +7,32 @@ const LogoutButton = () => {
   const { user, logoutUser } = useDashboardContext();
 
   return (
-    <div className="flex flex-row">
+    <div className="relative">
       <div
         type="button"
         className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex items-center justify-between w-[5rem] p-2 cursor-pointer rounded-[20px]"
-        onClick={() => setShowLogout((prevState) => !prevState)}
+        onClick={() => setShowLogout(!showLogout)}
       >
         <FaUserCircle />
         {user?.name}
-        <FaCaretDown className={showLogout ? "rotate-[-90deg]" : ""} />
+        <FaCaretDown
+          className={
+            showLogout
+              ? "rotate-[-90deg] animation duration-500 ease-in-out"
+              : "animation duration-500 ease-in-out"
+          }
+        />
       </div>
-      <div className={showLogout ? "flex" : "hidden"}>
-        <div
-          onClick={logoutUser}
-          className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex justify-center items-center p-2 w-[5rem] ml-2 cursor-pointer rounded-[20px]"
-        >
-          Logout
+      {showLogout && (
+        <div className="absolute rounded-[20px]">
+          <div
+            onClick={logoutUser}
+            className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex justify-center items-center p-2 w-[5rem] mt-2 cursor-pointer rounded-[20px]"
+          >
+            Logout
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
