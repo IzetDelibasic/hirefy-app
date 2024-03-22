@@ -7,7 +7,7 @@ const Navbar = () => {
   const { toggleSmallSidebar } = useDashboardContext();
 
   return (
-    <div className="h-[4rem] flex justify-center bg-gray-100 border-b-2 border-gray-300">
+    <div className="h-[4rem] flex justify-center bg-white border-b-[1px] border-gray-300">
       <div className="w-[90%] flex items-center justify-center mx-auto">
         <FaAlignLeft
           className="text-blue-500 cursor-pointer"

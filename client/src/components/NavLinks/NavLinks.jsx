@@ -15,7 +15,7 @@ const NavLinks = ({ isBigSidebar }) => {
               to={path}
               key={text}
               onClick={isBigSidebar ? null : toggleSmallSidebar}
-              className="flex justify-start items-center text-[1.2rem] ml-[1rem]"
+              className="flex justify-start items-center text-[1.25rem] ml-[1rem] group hover:text-blue-500 w-[80%] ease-in-out duration-300 font-about"
             >
               <Icon className="mr-[1rem]" />
               {text}

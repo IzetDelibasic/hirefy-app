@@ -14,7 +14,9 @@ const SmallSidebar = () => {
     >
       <div className="fixed inset-y-0 left-0 w-64 bg-white z-50 overflow-y-auto">
         <div className="flex justify-between items-center px-4 py-2 border-b border-gray-300 h-[4rem]">
-          <h2 className="text-lg font-medium font-montserrat">Hirefy</h2>
+          <h2 className="text-lg font-medium font-montserrat uppercase pl-4 group-hover:text-white">
+            Hirefy
+          </h2>
           <button className="lg:hidden" onClick={toggleSmallSidebar}>
             <MdClose />
           </button>
