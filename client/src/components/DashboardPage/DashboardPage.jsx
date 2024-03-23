@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 import { Navbar, Sidebar } from "..";
 import { Outlet } from "react-router-dom";
+import { checkDefaultTheme } from "../../App";
 
 const DashboardContext = createContext();
 
-const DashboardPage = ({ isDarkThemeEnabled }) => {
+const DashboardPage = ({}) => {
   const user = { name: "Izet" };
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(isDarkThemeEnabled);
+  const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);
