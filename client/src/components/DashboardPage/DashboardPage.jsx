@@ -7,6 +7,7 @@ const DashboardContext = createContext();
 const DashboardPage = () => {
   const user = { name: "Izet" };
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);
@@ -15,6 +16,8 @@ const DashboardPage = () => {
   const logoutUser = async () => {
     console.log("Logout user!");
   };
+
+  const toggleDarkTheme = () => {};
 
   return (
     <DashboardContext.Provider

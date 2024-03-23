@@ -24,6 +24,8 @@ export { default as LandingPageAction } from "./LandingPageAction/LandingPageAct
 
 export { default as LoginPage } from "./LoginPage/LoginPage";
 
+export { default as LogOutButton } from "./LogoutButton/LogoutButton";
+
 export { default as Navbar } from "./Navbar/Navbar";
 
 export { default as NavLinks } from "./NavLinks/NavLinks";
@@ -35,3 +37,5 @@ export { default as RegisterPage } from "./RegisterPage/RegisterPage";
 export { default as StatsPage } from "./StatsPage/StatsPage";
 
 export { default as Sidebar } from "./Sidebar/Sidebar";
+
+export { default as ThemeButton } from "./ThemeButton/ThemeButton";

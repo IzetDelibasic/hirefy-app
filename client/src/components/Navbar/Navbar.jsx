@@ -2,7 +2,7 @@ import React from "react";
 import { FaAlignLeft } from "react-icons/fa";
 import { useDashboardContext } from "../DashboardPage/DashboardPage";
 import { logoImage } from "../../constants/ImagesConstant";
-import LogoutButton from "../LogoutButton/LogoutButton";
+import { LogOutButton, ThemeButton } from "..";
 
 const Navbar = () => {
   const { toggleSmallSidebar, logoutUser } = useDashboardContext();
@@ -18,8 +18,9 @@ const Navbar = () => {
           <img src={logoImage} alt="Logo" className="w-[32px] h-[32px]" />
           <div className="text-3xl font-montserrat text-blue-500">irefy</div>
         </div>
+        <ThemeButton />
         <div className="">
-          <LogoutButton logoutUser={logoutUser} />
+          <LogOutButton logoutUser={logoutUser} />
         </div>
       </div>
     </div>
