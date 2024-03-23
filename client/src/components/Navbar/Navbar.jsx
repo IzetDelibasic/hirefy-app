@@ -18,8 +18,8 @@ const Navbar = () => {
           <img src={logoImage} alt="Logo" className="w-[32px] h-[32px]" />
           <div className="text-3xl font-montserrat text-blue-500">irefy</div>
         </div>
-        <ThemeButton />
-        <div className="">
+        <div className="w-[10rem] flex justify-between">
+          <ThemeButton />
           <LogOutButton logoutUser={logoutUser} />
         </div>
       </div>

@@ -7,7 +7,7 @@ const ThemeButton = () => {
   return (
     <div
       onClick={toggleDarkTheme}
-      className="bg-gray-300 border-2 border-blue-600 p-2 rounded-[20px]"
+      className="flex items-center justify-center bg-gray-100 border-2 border-blue-600 p-2 rounded-[30px] w-[3rem]"
     >
       {isDarkTheme ? (
         <BsFillMoonFill className="text-blue-800" />

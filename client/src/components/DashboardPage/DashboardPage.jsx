@@ -4,10 +4,10 @@ import { Outlet } from "react-router-dom";
 
 const DashboardContext = createContext();
 
-const DashboardPage = () => {
+const DashboardPage = ({ isDarkThemeEnabled }) => {
   const user = { name: "Izet" };
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(isDarkThemeEnabled);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);
@@ -17,7 +17,12 @@ const DashboardPage = () => {
     console.log("Logout user!");
   };
 
-  const toggleDarkTheme = () => {};
+  const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+    document.body.classList.toggle("dark-theme", newDarkTheme);
+    localStorage.setItem("darkTheme", newDarkTheme);
+  };
 
   return (
     <DashboardContext.Provider
@@ -26,6 +31,8 @@ const DashboardPage = () => {
         toggleSmallSidebar,
         showSmallSidebar,
         logoutUser,
+        toggleDarkTheme,
+        isDarkTheme,
       }}
     >
       <div className="bg-gray-200 min-h-screen flex flex-col">
