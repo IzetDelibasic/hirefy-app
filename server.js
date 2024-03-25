@@ -1,10 +1,14 @@
+// -Dotenv-
 import * as dotenv from "dotenv";
 dotenv.config();
+// -Express-
 import express from "express";
+// -Morgan-
 import morgan from "morgan";
 const app = express();
+// -Mongoose-
 import mongoose from "mongoose";
-// Routers
+// -Routers-
 import jobRouter from "./routes/jobRouter.js";
 
 if (process.env.NODE_ENV === "development") {
@@ -44,7 +48,3 @@ try {
   console.log(err);
   process.exit(1);
 }
-
-app.listen(port, () => {
-  console.log(`Server is running on PORT ${port}`);
-});

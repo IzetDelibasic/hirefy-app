@@ -33,7 +33,7 @@ export const getJob = async (req, res) => {
 export const editJob = async (req, res) => {
   const { company, position } = req.body;
   if (!company || !position) {
-    res.status(400).json({ msg: "Please probide company and position!" });
+    res.status(400).json({ msg: "Please provide company and position!" });
     return;
   }
   const { id } = req.params;
