@@ -10,6 +10,8 @@ const app = express();
 import mongoose from "mongoose";
 // -Routers-
 import jobRouter from "./routes/jobRouter.js";
+// -Middleware-
+import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -32,10 +34,7 @@ app.use("*", (req, res) => {
   res.status(404).json({ msg: "Not found" });
 });
 
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({ msg: "Something went wrong!" });
-});
+app.use(errorHandleMiddleware);
 
 const port = process.env.PORT || 5100;
 
