@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 // -Express-
 import express from "express";
+import { body, validationResult } from "express-validator";
 // -Morgan-
 import morgan from "morgan";
 const app = express();
@@ -12,6 +13,7 @@ import mongoose from "mongoose";
 import jobRouter from "./routes/jobRouter.js";
 // -Middleware-
 import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { validateTest } from "./middleware/validationMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -23,9 +25,9 @@ app.get("/", (req, res) => {
   res.send("Hello server");
 });
 
-app.post("/", (req, res) => {
-  console.log(req);
-  res.json({ message: "Data recieved", data: req.body });
+app.post("/api/v1/test", validateTest, (req, res) => {
+  const { name } = req.body;
+  res.json({ message: `Hello ${name}` });
 });
 
 app.use("/api/v1/jobs", jobRouter);
