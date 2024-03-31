@@ -11,6 +11,9 @@ const withValidationsError = (validateValues) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         const errorMessage = errors.array().map((error) => error.msg);
+        if (errorMessage[0].startsWith("No job")) {
+          throw new NotFoundError(errorMessage);
+        }
         throw new BadRequestError(errorMessage);
       }
       next();
