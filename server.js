@@ -13,7 +13,7 @@ import jobRouter from "./routes/jobRouter.js";
 import authRouter from "./routes/authRouter.js";
 // -Middleware-
 import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
-import { authenticatedUser } from "./middleware/authMiddleware.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 // -Cookies-
 import cookieParser from "cookie-parser";
 
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.send("Hello server");
 });
 
-app.use("/api/v1/jobs", authenticatedUser, jobRouter);
+app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/auth", authRouter);
 
 app.use("*", (req, res) => {
