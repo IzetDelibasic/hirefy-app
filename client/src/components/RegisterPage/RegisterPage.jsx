@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Form, redirect } from "react-router-dom";
 import { logoImage } from "../../constants/ImagesConstant";
-import { CustomButton } from "..";
 import { FormRow } from "..";
+import customFetch from "../../utils/customFetch";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -43,9 +43,21 @@ const RegisterPage = () => {
     );
   };
 
-  const handleSubmit = () => {
-    if (formValid) {
-      navigate("/dashboard");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formValid) return;
+    try {
+      const userData = {
+        name: firstName,
+        lastName: lastName,
+        location: location,
+        email: email,
+        password: password,
+      };
+      await customFetch.post("/auth/register", userData);
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -61,7 +73,11 @@ const RegisterPage = () => {
         <h1 className="text-2xl font-bold text-bluePurple uppercase mb-4 text-center">
           Register
         </h1>
-        <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+        <Form
+          method="post"
+          className="flex flex-col items-center"
+          onSubmit={handleSubmit}
+        >
           <FormRow
             type="text"
             name="firstName"
@@ -92,19 +108,17 @@ const RegisterPage = () => {
             labelText="Password"
             onChange={handleInputChange}
           />
-          <CustomButton
+          <button
             className={`relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
               !formValid && "opacity-50 cursor-not-allowed"
             }`}
-            title="Register"
-            titleClassName="group-hover:text-white font-subtitle"
             type="submit"
             disabled={!formValid}
-            onClick={handleSubmit}
           >
+            <div className="">Register</div>
             <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
-          </CustomButton>
-        </form>
+          </button>
+        </Form>
         <div className="pt-4 font-montserrat">
           Already a member?
           <Link to="/login" className="ml-1 font-medium text-blue-500">

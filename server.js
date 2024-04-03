@@ -17,11 +17,14 @@ import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
 // -Cookies-
 import cookieParser from "cookie-parser";
+// -Cors-
+import cors from "cors";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
