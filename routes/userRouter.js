@@ -4,10 +4,11 @@ import {
   getCurrentUser,
   updateUser,
 } from "../controllers/userController.js";
+import { validateUserUpdateInput } from "../middleware/validationMiddleware.js";
 const router = Router();
 
 router.get("/current-user", getCurrentUser);
 router.get("/admin/app-stats", getApplicationStats);
-router.patch("/update-user", updateUser);
+router.patch("/update-user", validateUserUpdateInput, updateUser);
 
 export default router;
