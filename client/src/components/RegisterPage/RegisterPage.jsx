@@ -3,6 +3,7 @@ import { useNavigate, Link, Form, redirect } from "react-router-dom";
 import { logoImage } from "../../constants/ImagesConstant";
 import { FormRow } from "..";
 import customFetch from "../../utils/customFetch";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -54,10 +55,13 @@ const RegisterPage = () => {
         email: email,
         password: password,
       };
-      await customFetch.post("/auth/register", userData);
-      navigate("/login");
+      await customFetch.post("/auth/register", userData).then(() => {
+        toast.success("Registration successful");
+        navigate("/login");
+      });
     } catch (err) {
-      console.log(err);
+      toast.error(err?.response?.data?.msg);
+      return err;
     }
   };
 
