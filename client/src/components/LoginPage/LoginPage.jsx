@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Form } from "react-router-dom";
 import { logoImage } from "../../constants/ImagesConstant";
-import { CustomButton } from "..";
 import { FormRow } from "..";
+import { toast } from "react-toastify";
+import customFetch from "../../utils/customFetch";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -17,9 +18,21 @@ const LoginPage = () => {
     setFormValid(email.trim() !== "" && password.trim() !== "");
   };
 
-  const handleSubmit = () => {
-    if (formValid) {
-      navigate("/dashboard");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formValid) return;
+    try {
+      const userData = {
+        email: email,
+        password: password,
+      };
+      await customFetch.post("/auth/login", userData).then(() => {
+        toast.success("Login successful");
+        navigate("/dashboard");
+      });
+    } catch (err) {
+      toast.error(err?.response?.data?.msg);
+      return err;
     }
   };
 
@@ -35,7 +48,11 @@ const LoginPage = () => {
         <h1 className="text-2xl font-bold text-bluePurple uppercase mb-4 text-center">
           Login
         </h1>
-        <form className="flex flex-col items-center" onSubmit={handleSubmit}>
+        <Form
+          className="flex flex-col items-center"
+          method="post"
+          onSubmit={handleSubmit}
+        >
           <FormRow
             type="email"
             name="email"
@@ -48,19 +65,17 @@ const LoginPage = () => {
             labelText="Password"
             onChange={handleInputChange}
           />
-          <CustomButton
+          <button
             className={`relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
               !formValid && "opacity-50 cursor-not-allowed"
             }`}
-            title="Login"
-            titleClassName="group-hover:text-white font-subtitle"
             type="submit"
             disabled={!formValid}
-            onClick={handleSubmit}
           >
+            <div className="">Login</div>
             <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
-          </CustomButton>
-        </form>
+          </button>
+        </Form>
         <div className="pt-4 font-montserrat">
           Not a member yet?
           <Link to="/register" className="ml-1 font-medium text-blue-500">
