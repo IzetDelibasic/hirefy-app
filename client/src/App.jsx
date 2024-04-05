@@ -15,6 +15,7 @@ import {
   JobsPage,
   Admin,
 } from "./components";
+import { loader as dashboardLoader } from "./components/DashboardPage/DashboardPage";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardPage />,
+        action: dashboardLoader,
         children: [
           {
             index: true,
