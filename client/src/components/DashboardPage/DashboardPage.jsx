@@ -16,22 +16,11 @@ export const loader = async () => {
 const DashboardContext = createContext();
 
 const DashboardPage = () => {
-  const [user, setUser] = useState(null);
+  const data = useLoaderData();
+  console.log(data);
+  const user = { name: "Izet" };
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
-
-  useEffect(() => {
-    const getCurrentUser = async () => {
-      try {
-        const response = await customFetch.get("/users/current-user");
-        setUser(response.data.user);
-      } catch (error) {
-        console.error("Error fetching current user data:", error);
-      }
-    };
-
-    getCurrentUser();
-  }, []);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);
