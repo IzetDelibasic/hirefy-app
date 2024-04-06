@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link, Form, redirect } from "react-router-dom";
+import { useNavigate, Link, Form } from "react-router-dom";
 import { logoImage } from "../../constants/ImagesConstant";
 import { FormRow } from "..";
 import customFetch from "../../utils/customFetch";

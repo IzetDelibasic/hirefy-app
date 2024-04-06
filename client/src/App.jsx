@@ -1,6 +1,12 @@
 // - React -
 import React from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 // - Components -
 import {
   HomePage,
@@ -75,7 +81,15 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  // return <RouterProvider router={router} />;
+  return (
+    <RouterProvider router={router}>
+      <Routes>
+        <Route path="/register" element={<Navigate replace to="/login" />} />
+        <Route path="/login" element={<Navigate replace to="/dashboard" />} />
+      </Routes>
+    </RouterProvider>
+  );
 };
 
 export default App;

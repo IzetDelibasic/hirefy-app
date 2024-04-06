@@ -26,10 +26,10 @@ const LoginPage = () => {
         email: email,
         password: password,
       };
-      await customFetch.post("/auth/login", userData).then(() => {
-        toast.success("Login successful");
-        navigate("/dashboard");
-      });
+      const response = await customFetch.post("/auth/login", userData);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      navigate("Login successful");
     } catch (err) {
       toast.error(err?.response?.data?.msg);
       return err;
