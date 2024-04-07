@@ -28,7 +28,7 @@ const LoginPage = () => {
       };
       const response = await customFetch.post("/auth/login", userData);
       const { token } = response.data;
-      localStorage.setItem("token", token);
+      //localStorage.setItem("token", token);
       navigate("/dashboard");
     } catch (err) {
       toast.error(err?.response?.data?.msg);

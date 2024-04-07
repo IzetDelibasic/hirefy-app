@@ -31,9 +31,9 @@ const DashboardPage = () => {
   };
 
   const logoutUser = async () => {
-    navigate("/");
-    await customFetch.get("/users/logout");
+    await customFetch.get("/auth/logout");
     toast.success("Logged out successfully");
+    navigate("/");
   };
 
   const toggleDarkTheme = () => {
