@@ -5,31 +5,35 @@ import { FormRow } from "..";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/customFetch";
 
-export const action = async ({ request }) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData);
-  try {
-    await customFetch.post("/auth/login", data);
-    toast.success("Login successful");
-    return redirect("/dashboard");
-  } catch (error) {
-    toast.error(error?.response?.data?.msg);
-    return error;
-  }
-};
-
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [formValid, setFormValid] = useState(false);
   const navigate = useNavigate();
-  const isSubmitting = navigate.state === "submitting";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "email") setEmail(value);
     if (name === "password") setPassword(value);
     setFormValid(email.trim() !== "" && password.trim() !== "");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formValid) return;
+    try {
+      const userData = {
+        email: email,
+        password: password,
+      };
+      const response = await customFetch.post("/auth/login", userData);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      navigate("/dashboard");
+    } catch (err) {
+      toast.error(err?.response?.data?.msg);
+      return err;
+    }
   };
 
   return (
@@ -47,7 +51,7 @@ const LoginPage = () => {
         <Form
           className="flex flex-col items-center"
           method="post"
-          onSubmit={action}
+          onSubmit={handleSubmit}
         >
           <FormRow
             type="email"
@@ -66,10 +70,9 @@ const LoginPage = () => {
               !formValid && "opacity-50 cursor-not-allowed"
             }`}
             type="submit"
-            //disabled={!formValid},
-            disabled={isSubmitting}
+            disabled={!formValid}
           >
-            <div className="">{isSubmitting ? "Submitting" : "Submit"}</div>
+            <div className="">Login</div>
             <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
           </button>
         </Form>

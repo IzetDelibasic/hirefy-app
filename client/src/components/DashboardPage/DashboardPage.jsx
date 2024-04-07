@@ -1,26 +1,28 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Navbar, Sidebar } from "..";
-import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { checkDefaultTheme } from "../../App";
 import customFetch from "../../utils/customFetch";
-
-export const loader = async () => {
-  try {
-    const { data } = await customFetch.get("/users/current-user");
-    return data;
-  } catch (error) {
-    return redirect("/");
-  }
-};
 
 const DashboardContext = createContext();
 
 const DashboardPage = () => {
-  const data = useLoaderData();
-  console.log(data);
-  const user = { name: "Izet" };
+  const [user, setUser] = useState(null);
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
+
+  useEffect(() => {
+    const getCurrentUser = async () => {
+      try {
+        const response = await customFetch.get("/users/current-user");
+        setUser(response.data.user);
+      } catch (error) {
+        console.error("Error fetching current user data:", error);
+      }
+    };
+
+    getCurrentUser();
+  }, []);
 
   const toggleSmallSidebar = () => {
     setShowSmallSidebar(!showSmallSidebar);

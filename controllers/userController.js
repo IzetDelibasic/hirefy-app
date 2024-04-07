@@ -4,6 +4,10 @@ import Job from "../models/JobModel.js";
 
 export const getCurrentUser = async (req, res) => {
   const user = await User.findOne({ _id: req.user.userId });
+  if (!user) {
+    res.status(StatusCodes.NOT_FOUND).json({ msg: "User not found" });
+    return;
+  }
   const userWithoutPassword = user.toJSON();
   res.status(StatusCodes.OK).json({ user: userWithoutPassword });
 };
