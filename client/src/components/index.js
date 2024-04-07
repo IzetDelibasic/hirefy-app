@@ -14,6 +14,8 @@ export { default as ErrorPage } from "./DashboardPage/DashboardPage";
 
 export { default as FormRow } from "./FomRow/FormRow";
 
+export { default as FormRowSelect } from "./FormRowSelect/FormRowSelect";
+
 export { default as HomePage } from "./HomePage/HomePage";
 
 export { default as JobsPage } from "./JobsPage/JobsPage";

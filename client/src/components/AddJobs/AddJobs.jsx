@@ -6,6 +6,7 @@ import { JOB_STATUS, JOB_TYPE } from "../../../../utils/serverConstants";
 import { Form, useNavigation, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/customFetch";
+import { FormRowSelect } from "..";
 
 const AddJobs = () => {
   const { user } = useDashboardContext();
@@ -28,6 +29,18 @@ const AddJobs = () => {
             labelText="jobLocation"
             name="jobLocation"
             defaultValue={user.location}
+          />
+          <FormRowSelect
+            labelText="Job Status"
+            name="jobStatus"
+            defaultValue={JOB_STATUS.PENDING}
+            list={Object.values(JOB_STATUS)}
+          />
+          <FormRowSelect
+            labelText="Job Type"
+            name="jobType"
+            defaultValue={JOB_TYPE.FULL_TIME}
+            list={Object.values(JOB_TYPE)}
           />
           <button className="bg-blue-600">Submit</button>
         </div>
