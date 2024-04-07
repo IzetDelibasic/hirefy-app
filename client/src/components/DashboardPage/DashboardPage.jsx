@@ -58,7 +58,7 @@ const DashboardPage = () => {
         <Sidebar />
         <Navbar />
         <div className="flex ">
-          <Outlet />
+          <Outlet context={{ user }} />
         </div>
       </div>
     </DashboardContext.Provider>
