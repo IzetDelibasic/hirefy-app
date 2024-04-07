@@ -3,6 +3,7 @@ import { Navbar, Sidebar } from "..";
 import { Outlet, useNavigate } from "react-router-dom";
 import { checkDefaultTheme } from "../../App";
 import customFetch from "../../utils/customFetch";
+import { toast } from "react-toastify";
 
 const DashboardContext = createContext();
 
@@ -10,6 +11,7 @@ const DashboardPage = () => {
   const [user, setUser] = useState(null);
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -29,7 +31,9 @@ const DashboardPage = () => {
   };
 
   const logoutUser = async () => {
-    console.log("Logout user!");
+    navigate("/");
+    await customFetch.get("/users/logout");
+    toast.success("Logged out successfully");
   };
 
   const toggleDarkTheme = () => {
