@@ -79,15 +79,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  // return <RouterProvider router={router} />;
-  return (
-    <RouterProvider router={router}>
-      <Routes>
-        <Route path="/register" element={<Navigate replace to="/login" />} />
-        <Route path="/login" element={<Navigate replace to="/dashboard" />} />
-      </Routes>
-    </RouterProvider>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
