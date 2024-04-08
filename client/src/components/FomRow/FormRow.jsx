@@ -3,7 +3,7 @@ import React from "react";
 const FormRow = React.forwardRef(
   ({ type, name, labelText, defaultValue, onChange }, ref) => {
     return (
-      <div className="mb-4 w-[15rem]">
+      <div className="mb-4 w-[90%]">
         <label
           htmlFor={name}
           className="font-normal uppercase font-montserrat text-[14px]"

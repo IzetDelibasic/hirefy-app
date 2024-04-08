@@ -1,11 +1,14 @@
+// -React-
 import React, { useState } from "react";
-import FormRow from "../FomRow/FormRow";
-import { useDashboardContext } from "../DashboardPage/DashboardPage";
-import { JOB_STATUS, JOB_TYPE } from "../../../../utils/serverConstants";
-import { Form, useNavigate, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import customFetch from "../../utils/customFetch";
+import { Form, useNavigate } from "react-router-dom";
+// -Components-
+import FormRow from "../FomRow/FormRow";
 import { FormRowSelect } from "..";
+import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// -Utils-
+import { JOB_STATUS, JOB_TYPE } from "../../../../utils/serverConstants";
+import customFetch from "../../utils/customFetch";
 
 const AddJobs = () => {
   const { user } = useDashboardContext();
@@ -70,44 +73,46 @@ const AddJobs = () => {
   };
 
   return (
-    <div>
-      <Form method="post" className="bg-gray-100" onSubmit={handleSubmit}>
-        <div>Add jobs</div>
-        <div>
-          <FormRow type="text" name="position" onChange={handleInputChange} />
-          <FormRow type="text" name="company" onChange={handleInputChange} />
-          <FormRow
-            type="text"
-            labelText="jobLocation"
-            name="jobLocation"
-            defaultValue={user.location}
-            onChange={handleInputChange}
-          />
-          <FormRowSelect
-            labelText="Job Status"
-            name="jobStatus"
-            defaultValue={JOB_STATUS.PENDING}
-            list={Object.values(JOB_STATUS)}
-          />
-          <FormRowSelect
-            labelText="Job Type"
-            name="jobType"
-            defaultValue={JOB_TYPE.FULL_TIME}
-            list={Object.values(JOB_TYPE)}
-          />
-          <button
-            className={`relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
-              !formValid && "opacity-50 cursor-not-allowed"
-            }`}
-            type="submit"
-            disabled={!formValid}
-          >
-            <div className="">Add job</div>
-            <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
-          </button>
-        </div>
-      </Form>
-    </div>
+    <Form
+      method="post"
+      className="bg-gray-100 flex flex-col items-center justify-center p-10 mx-auto w-[80%] mt-[12rem] rounded-[0.6rem] shadow-lg"
+      onSubmit={handleSubmit}
+    >
+      <div className="text-[24px] font-montserrat">Add jobs</div>
+      <div className="grid grid-cols-3">
+        <FormRow type="text" name="position" onChange={handleInputChange} />
+        <FormRow type="text" name="company" onChange={handleInputChange} />
+        <FormRow
+          type="text"
+          labelText="Job Location"
+          name="jobLocation"
+          defaultValue={user.location}
+          onChange={handleInputChange}
+        />
+        <FormRowSelect
+          labelText="Job Status"
+          name="jobStatus"
+          defaultValue={JOB_STATUS.PENDING}
+          list={Object.values(JOB_STATUS)}
+        />
+        <FormRowSelect
+          labelText="Job Type"
+          name="jobType"
+          defaultValue={JOB_TYPE.FULL_TIME}
+          list={Object.values(JOB_TYPE)}
+        />
+        <button
+          className={`w-[80%] relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
+            !formValid && "opacity-50 cursor-not-allowed"
+          }`}
+          type="submit"
+          disabled={!formValid}
+        >
+          <div className="">Add job</div>
+          <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
+        </button>
+      </div>
+    </Form>
   );
 };
 

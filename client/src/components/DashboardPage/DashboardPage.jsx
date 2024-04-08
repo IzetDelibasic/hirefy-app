@@ -57,7 +57,7 @@ const DashboardPage = () => {
       <div className="bg-gray-200 min-h-screen flex flex-col">
         <Sidebar />
         <Navbar />
-        <div className="flex ">
+        <div className="">
           <Outlet context={{ user }} />
         </div>
       </div>
