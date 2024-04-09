@@ -1,24 +1,32 @@
-import React, { useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
 
 const JobsPage = () => {
+  const [data, setData] = useState(null);
+  const AllJobsContext = createContext();
+
   useEffect(() => {
     const getAllJobs = async () => {
       try {
         const { data } = await customFetch.get("/jobs");
         console.log(data);
-        return data;
+        setData(data);
       } catch (error) {
         toast.error(error?.response?.data?.msg);
-        return error;
       }
     };
 
     getAllJobs();
   }, []);
 
-  return <div>JobsPage</div>;
+  return (
+    <AllJobsContext.Provider value={data}>
+      <div>JobsPage</div>
+    </AllJobsContext.Provider>
+  );
 };
+
+export const useAllJobsContext = () => useContext(AllJobsContext);
 
 export default JobsPage;
