@@ -1,10 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
+import JobsContainer from "../JobsContainer/JobsContainer";
+
+const AllJobsContext = createContext();
 
 const JobsPage = () => {
   const [data, setData] = useState(null);
-  const AllJobsContext = createContext();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getAllJobs = async () => {
@@ -12,17 +15,23 @@ const JobsPage = () => {
         const { data } = await customFetch.get("/jobs");
         console.log(data);
         setData(data);
+        setLoading(false);
       } catch (error) {
         toast.error(error?.response?.data?.msg);
+        setLoading(false);
       }
     };
 
     getAllJobs();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <AllJobsContext.Provider value={data}>
-      <div>JobsPage</div>
+      <JobsContainer />
     </AllJobsContext.Provider>
   );
 };

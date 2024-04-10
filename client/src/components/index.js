@@ -20,6 +20,12 @@ export { default as HomePage } from "./HomePage/HomePage";
 
 export { default as JobsPage } from "./JobsPage/JobsPage";
 
+export { default as Job } from "./Job/Job";
+
+export { default as JobInfo } from "./JobInfo/JobInfo";
+
+export { default as JobsContainer } from "./JobsContainer/JobsContainer";
+
 export { default as LandingPage } from "./LandingPage/LandingPage";
 
 export { default as LandingPageAction } from "./LandingPageAction/LandingPageAction";
