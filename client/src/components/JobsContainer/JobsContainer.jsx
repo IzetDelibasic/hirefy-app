@@ -3,10 +3,10 @@ import Job from "../Job/Job";
 import { useAllJobsContext } from "../JobsPage/JobsPage";
 
 const JobsContainer = () => {
-  const { data } = useAllJobsContext();
+  const data = useAllJobsContext();
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>Loading data...</div>;
   }
 
   const { jobs } = data;

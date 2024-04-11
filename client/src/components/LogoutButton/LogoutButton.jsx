@@ -10,10 +10,10 @@ const LogoutButton = () => {
     <div className="relative">
       <div
         type="button"
-        className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex items-center justify-between w-[5rem] p-2 cursor-pointer rounded-[20px]"
+        className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex items-center justify-between w-[6.5rem] p-2 cursor-pointer rounded-[20px]"
         onClick={() => setShowLogout(!showLogout)}
       >
-        <FaUserCircle />
+        <FaUserCircle className="" />
         {user?.name}
         <FaCaretDown
           className={
@@ -27,7 +27,7 @@ const LogoutButton = () => {
         <div className="absolute rounded-[20px]">
           <div
             onClick={logoutUser}
-            className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex justify-center items-center p-2 w-[5rem] mt-2 cursor-pointer rounded-[20px]"
+            className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex justify-center items-center p-2 w-[6.5rem] mt-2 cursor-pointer rounded-[20px]"
           >
             Logout
           </div>

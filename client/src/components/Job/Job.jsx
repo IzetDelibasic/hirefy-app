@@ -12,8 +12,18 @@ const Job = ({
   jobStatus,
   jobType,
 }) => {
-  console.log(Job._id);
-  return <div>Job</div>;
+  return (
+    <div>
+      <p>{_id}</p>
+      <h2>
+        {position} at {company}
+      </h2>
+      <p>Location: {jobLocation}</p>
+      <p>Type: {jobType}</p>
+      <p>Status: {jobStatus}</p>
+      <p>Created at: {createdAt}</p>
+    </div>
+  );
 };
 
 export default Job;
