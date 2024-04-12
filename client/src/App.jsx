@@ -20,6 +20,7 @@ import {
   StatsPage,
   JobsPage,
   Admin,
+  EditJobs,
 } from "./components";
 
 export const checkDefaultTheme = () => {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
           {
             path: "jobs-page",
             element: <JobsPage />,
+          },
+          {
+            path: "edit-job/:id",
+            element: <EditJobs />,
           },
         ],
       },
