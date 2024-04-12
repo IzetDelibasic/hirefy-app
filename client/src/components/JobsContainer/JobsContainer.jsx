@@ -16,7 +16,7 @@ const JobsContainer = () => {
   }
 
   return (
-    <div>
+    <div className="flex lg:flex-row flex-col justify-center items-center">
       {jobs.map((job) => {
         return <Job key={job._id} {...job} />;
       })}
