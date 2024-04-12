@@ -23,6 +23,9 @@ import {
   EditJobs,
 } from "./components";
 
+import { loader as editJobLoader } from "./components/EditJobs/EditJobs";
+import { action as editJobAction } from "./components/EditJobs/EditJobs";
+
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
   document.body.classList.toggle("dark-theme", isDarkTheme);
@@ -76,6 +79,8 @@ const router = createBrowserRouter([
           {
             path: "edit-job/:id",
             element: <EditJobs />,
+            loader: editJobLoader,
+            action: editJobAction,
           },
         ],
       },

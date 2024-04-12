@@ -64,7 +64,7 @@ const AddJobs = () => {
       };
       await customFetch.post("/jobs", jobData).then(() => {
         toast.success("Job added successfully");
-        navigate("/jobs-page");
+        navigate("/dashboard/jobs-page");
       });
     } catch (error) {
       toast.error(error?.response?.data?.msg);
