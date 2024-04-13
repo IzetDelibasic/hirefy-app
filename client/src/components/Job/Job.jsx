@@ -1,9 +1,11 @@
 import React from "react";
 import day from "dayjs";
 import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
-import { Link, Form } from "react-router-dom";
+import { Link, Form, useNavigate, redirect } from "react-router-dom";
 import JobInfo from "../JobInfo/JobInfo";
+import { toast } from "react-toastify";
 import advencedFormat from "dayjs/plugin/advancedFormat";
+import customFetch from "../../utils/customFetch";
 day.extend(advencedFormat);
 
 const Job = ({
@@ -16,6 +18,18 @@ const Job = ({
   jobType,
 }) => {
   const date = day(createdAt).format("MMM Do, YYYY");
+
+  const deleteJob = async (e) => {
+    e.preventDefault();
+    try {
+      await customFetch.delete(`/jobs/${_id}`);
+      toast.success("Job deleted successfully");
+      return redirect("/dashboard/jobs-page");
+    } catch (error) {
+      toast.error(error?.response?.data?.msg);
+    }
+  };
+
   return (
     <div className="bg-blue-400 m-3 lg:w-[80%] w-[80%] px-10 py-2 font-montserrat text-center mx-auto rounded-md shadow-md">
       <div>{company.charAt(0)}</div>
@@ -38,7 +52,7 @@ const Job = ({
           Edit
         </Link>
         <Form method="post" action={`../delete-job/${_id}`}>
-          <button type="submit" className="bg-white p-2">
+          <button type="submit" onClick={deleteJob} className="bg-white p-2">
             Delete
           </button>
         </Form>

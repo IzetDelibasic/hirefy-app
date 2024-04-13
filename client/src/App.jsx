@@ -25,7 +25,7 @@ import {
 
 import { loader as editJobLoader } from "./components/EditJobs/EditJobs";
 import { action as editJobAction } from "./components/EditJobs/EditJobs";
-import { action as deleteJobAction } from "./components/DeleteJobs/DeleteJobs";
+//import { action as deleteJobAction } from "./components/DeleteJobs/DeleteJobs";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -83,10 +83,10 @@ const router = createBrowserRouter([
             loader: editJobLoader,
             action: editJobAction,
           },
-          {
-            path: "delete-job/:id",
-            action: deleteJobAction,
-          },
+          // {
+          //   path: "delete-job/:id",
+          //   action: deleteJobAction,
+          // },
         ],
       },
     ],

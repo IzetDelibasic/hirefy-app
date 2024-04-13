@@ -86,7 +86,6 @@ const AddJobs = () => {
           type="text"
           labelText="Job Location"
           name="jobLocation"
-          defaultValue={user.location}
           onChange={handleInputChange}
         />
         <FormRowSelect
