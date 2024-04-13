@@ -6,7 +6,7 @@ import { MdAdminPanelSettings } from "react-icons/md";
 
 const LinksConstant = [
   { text: "Add job", path: ".", icon: FaWpforms },
-  { text: "All jobs", path: "jobs-page", icon: MdQueryStats },
+  { text: "All jobs", path: "/dashboard/jobs-page", icon: MdQueryStats },
   { text: "Stats", path: "stats", icon: IoBarChartSharp },
   { text: "Profile", path: "profile", icon: ImProfile },
   { text: "Admin", path: "admin", icon: MdAdminPanelSettings },
