@@ -6,8 +6,6 @@ export { default as CustomButton } from "./CustomButton/CustomButton";
 
 export { default as DashboardPage } from "./DashboardPage/DashboardPage";
 
-export { default as DeleteJobs } from "./DeleteJobs/DeleteJobs";
-
 export { default as EditJobs } from "./EditJobs/EditJobs";
 
 export { default as ErrorPage } from "./DashboardPage/DashboardPage";

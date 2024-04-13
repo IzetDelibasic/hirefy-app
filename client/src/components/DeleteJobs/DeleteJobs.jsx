@@ -1,7 +1,13 @@
-import React from "react";
+import customFetch from "../../utils/customFetch";
+import { redirect } from "react-router-dom";
 
-const DeleteJobs = () => {
-  return <div>DeleteJobs</div>;
+export const action = async ({ params }) => {
+  try {
+    await customFetch.delete(`/jobs/${params.id}`);
+    toast.success("Job deleted successfully");
+    return redirect("/dashboard/jobs-page");
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return redirect("/dashboard/jobs-page");
+  }
 };
-
-export default DeleteJobs;
