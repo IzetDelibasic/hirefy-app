@@ -3,14 +3,34 @@ import React from "react";
 import { useNavigate, useOutletContext, Form } from "react-router-dom";
 // -Components-
 import FormRow from "../FomRow/FormRow";
+// -Utils-
+import customFetch from "../../utils/customFetch";
+
+export const action = async () => {
+  const formData = await request.formData();
+  const file = formData.get("avatar");
+  const data = Object.fromEntries(formData.fromEntries);
+  if (file && file.size > 500000) {
+    toast.error("File size too large");
+    return null;
+  }
+  try {
+    await customFetch.patch("/users/update-user", data);
+    toast.success("Profile updated successfully");
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+  }
+  return null;
+};
 
 const ProfilePage = () => {
-  const { user } = useOutletContext;
+  const { user } = useOutletContext();
   if (!user) {
     return <div>Loading user</div>;
   }
   const { name, email, lastName, location } = user;
   const navigate = useNavigate();
+
   return (
     <div>
       <Form method="post" encType="multipart/form-data">
@@ -39,8 +59,8 @@ const ProfilePage = () => {
             name="location"
             type="text"
           />
+          <button type="submit">Save changes</button>
         </div>
-        <button type="submit">Save changes</button>
       </Form>
     </div>
   );
