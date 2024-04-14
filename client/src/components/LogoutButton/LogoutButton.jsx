@@ -1,6 +1,9 @@
+// -React-
 import React, { useState } from "react";
-import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// -Icons-
 import { FaUserCircle, FaCaretDown } from "react-icons/fa";
+// -Context-
+import { useDashboardContext } from "../DashboardPage/DashboardPage";
 
 const LogoutButton = () => {
   const [showLogout, setShowLogout] = useState(false);

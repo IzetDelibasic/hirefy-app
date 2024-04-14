@@ -1,6 +1,10 @@
+// -React-
 import React from "react";
-import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// -Components-
 import NavLinks from "../NavLinks/NavLinks";
+// -Context-
+import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// -Icons-
 import { MdClose } from "react-icons/md";
 
 const BigSidebar = () => {

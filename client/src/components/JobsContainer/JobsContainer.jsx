@@ -1,4 +1,6 @@
+// -React-
 import React from "react";
+// -Components-
 import Job from "../Job/Job";
 import { useAllJobsContext } from "../JobsPage/JobsPage";
 

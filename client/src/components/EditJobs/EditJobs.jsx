@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import customFetch from "../../utils/customFetch";
+// -React-
+import React from "react";
 import { toast } from "react-toastify";
 import { useNavigate, useLoaderData, Form, redirect } from "react-router-dom";
+// -Components-
 import FormRow from "../FomRow/FormRow";
 import FormRowSelect from "../FormRowSelect/FormRowSelect";
+// -Constants-
 import { JOB_STATUS, JOB_TYPE } from "../../../../utils/serverConstants";
+// -Utils-
+import customFetch from "../../utils/customFetch";
 
 export const loader = async ({ params }) => {
   try {

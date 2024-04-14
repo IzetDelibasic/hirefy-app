@@ -1,9 +1,12 @@
+// -React-
 import React, { useState } from "react";
 import { useNavigate, Link, Form } from "react-router-dom";
+import { toast } from "react-toastify";
+// -Components-
 import { logoImage } from "../../constants/ImagesConstant";
 import { FormRow } from "..";
+// -Utils-
 import customFetch from "../../utils/customFetch";
-import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");

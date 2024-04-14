@@ -1,12 +1,6 @@
 // - React -
 import React from "react";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // - Components -
 import {
   HomePage,

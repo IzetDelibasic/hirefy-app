@@ -1,5 +1,8 @@
+// -React-
 import React from "react";
+// -Components-
 import { LandingPageAction } from "..";
+// -Constants-
 import { logoImage, landingImage } from "../../constants/ImagesConstant";
 
 const LandingPage = () => {

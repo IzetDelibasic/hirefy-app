@@ -1,9 +1,12 @@
+// -React-
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { Navbar, Sidebar } from "..";
 import { Outlet, useNavigate } from "react-router-dom";
-import { checkDefaultTheme } from "../../App";
-import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
+// -Components-
+import { Navbar, Sidebar } from "..";
+// -Utils-
+import customFetch from "../../utils/customFetch";
+import { checkDefaultTheme } from "../../App";
 
 const DashboardContext = createContext();
 

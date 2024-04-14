@@ -1,11 +1,16 @@
+// -React-
 import React from "react";
-import day from "dayjs";
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
-import { Link, Form, useNavigate, redirect } from "react-router-dom";
-import JobInfo from "../JobInfo/JobInfo";
 import { toast } from "react-toastify";
-import advencedFormat from "dayjs/plugin/advancedFormat";
+import { Link, Form, redirect } from "react-router-dom";
+// -Icons-
+import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+// -Components-
+import JobInfo from "../JobInfo/JobInfo";
 import customFetch from "../../utils/customFetch";
+// -Dayjs-
+import day from "dayjs";
+import advencedFormat from "dayjs/plugin/advancedFormat";
+
 day.extend(advencedFormat);
 
 const Job = ({

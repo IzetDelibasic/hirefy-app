@@ -1,9 +1,13 @@
+// -React-
 import React, { useState } from "react";
 import { useNavigate, Link, Form } from "react-router-dom";
-import { logoImage } from "../../constants/ImagesConstant";
-import { FormRow } from "..";
 import { toast } from "react-toastify";
+// -Constants-
+import { logoImage } from "../../constants/ImagesConstant";
+// -Utils-
 import customFetch from "../../utils/customFetch";
+// -Components-
+import { FormRow } from "..";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

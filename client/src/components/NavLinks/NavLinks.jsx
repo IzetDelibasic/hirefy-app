@@ -1,6 +1,9 @@
+// - React-
 import React from "react";
 import { NavLink } from "react-router-dom";
+// - Components -
 import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// - Constants -
 import LinksConstant from "../../constants/LinksConstant";
 
 const NavLinks = ({ isBigSidebar }) => {

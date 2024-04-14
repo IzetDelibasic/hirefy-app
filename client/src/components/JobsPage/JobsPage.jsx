@@ -1,6 +1,9 @@
+// -React-
 import React, { createContext, useContext, useEffect, useState } from "react";
-import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
+// -Utils-
+import customFetch from "../../utils/customFetch";
+// -Components-
 import JobsContainer from "../JobsContainer/JobsContainer";
 
 const AllJobsContext = createContext();

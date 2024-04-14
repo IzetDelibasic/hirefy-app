@@ -1,7 +1,12 @@
+// -React-
 import React from "react";
+// -Icons-
 import { FaAlignLeft } from "react-icons/fa";
+// -Context-
 import { useDashboardContext } from "../DashboardPage/DashboardPage";
+// -Constants-
 import { logoImage } from "../../constants/ImagesConstant";
+// -Components-
 import { LogOutButton, ThemeButton } from "..";
 
 const Navbar = () => {
