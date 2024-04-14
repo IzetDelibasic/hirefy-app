@@ -44,4 +44,6 @@ export { default as StatsPage } from "./StatsPage/StatsPage";
 
 export { default as Sidebar } from "./Sidebar/Sidebar";
 
+export { default as StatItem } from "./StatItem/StatItem";
+
 export { default as ThemeButton } from "./ThemeButton/ThemeButton";
