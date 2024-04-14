@@ -5,7 +5,7 @@ import { FaAlignLeft } from "react-icons/fa";
 // -Context-
 import { useDashboardContext } from "../DashboardPage/DashboardPage";
 // -Constants-
-import { logoImage } from "../../constants/ImagesConstant";
+// import { logoImage } from "../../constants/ImagesConstant";
 // -Components-
 import { LogOutButton, ThemeButton } from "..";
 
@@ -26,8 +26,8 @@ const Navbar = () => {
           onClick={toggleSmallSidebar}
         />
         <div className="flex items-center justify-center cursor-default">
-          <img src={logoImage} alt="Logo" className="w-[32px] h-[32px]" />
-          <div className="text-3xl font-montserrat text-blue-500">irefy</div>
+          {/* <img src={logoImage} alt="Logo" className="w-[32px] h-[32px]" /> */}
+          <div className="text-3xl font-montserrat text-blue-500">Hirefy</div>
         </div>
         <div className="w-[10rem] flex justify-between">
           <ThemeButton />

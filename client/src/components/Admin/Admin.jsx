@@ -22,9 +22,9 @@ export const loader = async () => {
 const Admin = () => {
   const { users, jobs } = useLoaderData();
   return (
-    <div>
-      <StatItem title="Current users" count={users} Icon={FaSuitcaseRolling} />
-      <StatItem title="Current jobs" count={jobs} Icon={FaCalendarCheck} />
+    <div className="flex flex-col lg:flex-row justify-center items-center lg:mt-[10rem] mt-[2rem]">
+      <StatItem title="Current users:" count={users} Icon={FaSuitcaseRolling} />
+      <StatItem title="Current jobs:" count={jobs} Icon={FaCalendarCheck} />
     </div>
   );
 };

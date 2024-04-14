@@ -79,7 +79,7 @@ const AddJobs = () => {
       onSubmit={handleSubmit}
     >
       <div className="text-[24px] font-montserrat">Add jobs</div>
-      <div className="grid grid-cols-3">
+      <div className="md:grid md:grid-cols-3 flex flex-col items-center justify-center">
         <FormRow type="text" name="position" onChange={handleInputChange} />
         <FormRow type="text" name="company" onChange={handleInputChange} />
         <FormRow
