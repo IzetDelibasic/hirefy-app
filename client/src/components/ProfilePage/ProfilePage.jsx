@@ -1,21 +1,22 @@
 // -React-
 import React from "react";
+import { toast } from "react-toastify";
 import { useNavigate, useOutletContext, Form } from "react-router-dom";
 // -Components-
 import FormRow from "../FomRow/FormRow";
 // -Utils-
 import customFetch from "../../utils/customFetch";
 
-export const action = async () => {
-  const formData = await request.formData();
+export const action = async (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
   const file = formData.get("avatar");
-  const data = Object.fromEntries(formData.fromEntries);
   if (file && file.size > 500000) {
     toast.error("File size too large");
     return null;
   }
   try {
-    await customFetch.patch("/users/update-user", data);
+    await customFetch.patch("/users/update-user", formData);
     toast.success("Profile updated successfully");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
@@ -29,11 +30,10 @@ const ProfilePage = () => {
     return <div>Loading user</div>;
   }
   const { name, email, lastName, location } = user;
-  const navigate = useNavigate();
 
   return (
     <div>
-      <Form method="post" encType="multipart/form-data">
+      <Form method="post" encType="multipart/form-data" onSubmit={action}>
         <div>Profile</div>
         <div>
           <label htmlFor="avatar">Select an image file (max 0.5MB)</label>
