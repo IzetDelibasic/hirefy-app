@@ -16,8 +16,16 @@ const LogoutButton = () => {
         className="bg-blue-500 hover:bg-blue-800 ease-out duration-300 text-white flex items-center justify-between w-[6.5rem] p-2 cursor-pointer rounded-[20px]"
         onClick={() => setShowLogout(!showLogout)}
       >
-        <FaUserCircle className="" />
-        {user?.name}
+        {user && user.avatar ? (
+          <img
+            src={user.avatar}
+            alt="avatar"
+            className="w-6 h-6 rounded-full"
+          />
+        ) : (
+          <FaUserCircle className="" />
+        )}
+        {user && user.name}
         <FaCaretDown
           className={
             showLogout
