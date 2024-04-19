@@ -2,7 +2,13 @@ export { default as AddJobs } from "./AddJobs/AddJobs";
 
 export { default as Admin } from "./Admin/Admin";
 
+export { default as AreaChart } from "./AreaChart/AreaChart";
+
+export { default as BarChart } from "./BarChart/BarChart";
+
 export { default as CustomButton } from "./CustomButton/CustomButton";
+
+export { default as ChartsContainer } from "./ChartsContainer/ChartsContainer";
 
 export { default as DashboardPage } from "./DashboardPage/DashboardPage";
 
@@ -45,5 +51,7 @@ export { default as StatsPage } from "./StatsPage/StatsPage";
 export { default as Sidebar } from "./Sidebar/Sidebar";
 
 export { default as StatItem } from "./StatItem/StatItem";
+
+export { default as StatsContainer } from "./StatsContainer/StatsContainer";
 
 export { default as ThemeButton } from "./ThemeButton/ThemeButton";
