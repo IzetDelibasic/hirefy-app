@@ -5,9 +5,9 @@ export const JOB_STATUS = {
 };
 
 export const JOB_TYPE = {
-  FULL_TIME: "full-time",
-  PART_TIME: "part-time",
-  INTERNSHIP: "internship",
+  FULL_TIME: "Full-Time",
+  PART_TIME: "Part-Time",
+  INTERNSHIP: "Internship",
 };
 
 export const JOB_SORT_BY = {
