@@ -6,6 +6,10 @@ import { useOutletContext, Form } from "react-router-dom";
 import FormRow from "../FomRow/FormRow";
 // -Utils-
 import customFetch from "../../utils/customFetch";
+// -Constants-
+import { demoUserImage } from "../../constants/ImagesConstant";
+// -Icons-
+import { FaUserCircle } from "react-icons/fa";
 
 export const action = async (event) => {
   event.preventDefault();
@@ -55,7 +59,9 @@ const ProfilePage = () => {
                   className="w-[10rem] h-[10rem] rounded-full mx-auto my-2"
                 />
               ) : (
-                <FaUserCircle className="" />
+                <div className="flex justify-center items-center mb-2">
+                  <FaUserCircle className="w-20 h-20" />
+                </div>
               )}
               Select an image file (max 0.5MB)
             </label>
