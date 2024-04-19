@@ -2,6 +2,7 @@ import "express-async-errors";
 import Job from "../models/JobModel.js";
 import { StatusCodes } from "http-status-codes";
 import day from "dayjs";
+import mongoose from "mongoose";
 
 // export const getAllJobs = async (req, res) => {
 //   const jobs = await Job.find({ createdBy: req.user.userId });
@@ -38,10 +39,23 @@ export const deleteJob = async (req, res) => {
 };
 
 export const showStats = async (req, res) => {
+  let stats = await Job.aggregate([
+    { $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } },
+    { $group: { _id: "$jobStatus", count: { $sum: 1 } } },
+  ]);
+
+  stats = stats.reduce((acc, curr) => {
+    const { _id: title, count } = curr;
+    acc[title] = count;
+    return acc;
+  }, {});
+
+  console.log(stats);
+
   const defaultStats = {
-    pending: 22,
-    interview: 11,
-    declined: 4,
+    pending: stats.Pending || 0,
+    interview: stats.Interview || 0,
+    declined: stats.Declined || 0,
   };
   let monthlyApplications = [
     {
