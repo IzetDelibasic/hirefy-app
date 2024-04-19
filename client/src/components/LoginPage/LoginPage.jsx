@@ -15,6 +15,21 @@ const LoginPage = () => {
   const [formValid, setFormValid] = useState(false);
   const navigate = useNavigate();
 
+  const loginDemoUser = async () => {
+    const data = {
+      email: "guest@gmail.com",
+      password: "secret123!",
+    };
+    try {
+      await customFetch.post("/auth/login", data);
+      toast.success("Logged in as a demo user");
+      navigate("/dashboard");
+    } catch (err) {
+      toast.error(err?.response?.data?.msg);
+      return err;
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (name === "email") setEmail(value);
@@ -80,7 +95,13 @@ const LoginPage = () => {
             <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
           </button>
         </Form>
-        <div className="pt-4 font-montserrat">
+        <div
+          className="pt-4 font-montserrat cursor-pointer hover:text-blue-500 ease-out duration-200"
+          onClick={loginDemoUser}
+        >
+          Explore the app
+        </div>
+        <div className="pt-2 font-montserrat">
           Not a member yet?
           <Link to="/register" className="ml-1 font-medium text-blue-500">
             Register
