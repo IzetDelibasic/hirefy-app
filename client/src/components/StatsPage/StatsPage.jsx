@@ -20,7 +20,7 @@ const StatsPage = () => {
   return (
     <>
       <StatsContainer defaultStats={defaultStats} />
-      {monthlyApplicatons?.length > 1 && (
+      {monthlyApplicatons?.length > 0 && (
         <ChartsContainer data={monthlyApplicatons} />
       )}
     </>
