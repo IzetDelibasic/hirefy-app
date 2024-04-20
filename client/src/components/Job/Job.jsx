@@ -36,28 +36,32 @@ const Job = ({
   };
 
   return (
-    <div className="bg-blue-400 m-3 lg:w-[80%] w-[80%] px-10 py-2 font-montserrat text-center mx-auto rounded-md shadow-md">
-      <div>{company.charAt(0)}</div>
-      <div className="font-medium">
+    <div className="bg-blue-400 m-2 lg:w-[90%] w-[80%] lg:h-[22rem] lg:px-10 lg:py-2 font-montserrat text-center mx-auto rounded-md shadow-md flex flex-col justify-center items-center">
+      <div className="border-2 border-black w-[3rem] mx-auto h-[3rem] flex justify-center items-center font-bold bg-blue-200 bg-opacity-60 mt-4 lg:mt-0">
+        {company.charAt(0)}
+      </div>
+      <div className="font-medium my-1">
         {position} at {company}
       </div>
-      <div>Location: {jobLocation}</div>
-      <div>Type: {jobType}</div>
       <div>
         <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
         <JobInfo icon={<FaCalendarAlt />} text={date} />
         <JobInfo icon={<FaBriefcase />} text={jobType} />
-        <div className={`status ${jobStatus}`}>{jobStatus}</div>
+        <div className={`status ${jobStatus}`}>Status: {jobStatus}</div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-center items-center w-[60%] mx-auto">
+      <div className="flex flex-row justify-center items-center w-[60%] mx-auto my-4">
         <Link
           to={`../edit-job/${_id}`}
-          className="bg-white p-2 mb-2 lg:mb-0 lg:mr-2"
+          className="bg-gray-900 text-white p-2 mr-2 hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl w-[4rem]"
         >
           Edit
         </Link>
         <Form method="post" action={`../delete-job/${_id}`}>
-          <button type="submit" onClick={deleteJob} className="bg-white p-2">
+          <button
+            type="submit"
+            onClick={deleteJob}
+            className="bg-gray-900 text-white p-2 hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl w-[6rem]"
+          >
             Delete
           </button>
         </Form>

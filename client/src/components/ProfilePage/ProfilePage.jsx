@@ -97,7 +97,7 @@ const ProfilePage = () => {
           <div className="flex justify-center items-center">
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-800 ease-in-out duration-300 text-white py-2 px-4 focus:outline-none rounded-xl focus:shadow-outline w-[30%]"
+              className="bg-blue-500 hover:bg-blue-800 ease-in-out duration-300 text-white py-2 px-4 focus:outline-none rounded-xl focus:shadow-outline lg:w-[30%] md:w-[45%] w-[60%]"
             >
               Save changes
             </button>
