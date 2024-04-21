@@ -10,7 +10,19 @@ import mongoose from "mongoose";
 // };
 
 export const getAllJobs = async (req, res) => {
-  const jobs = await Job.find();
+  const { search } = req.query;
+  const queryObject = {
+    createdBy: req.user.userId,
+  };
+
+  if (search) {
+    queryObject.$or = [
+      { position: { $regex: search, $options: "i" } },
+      { company: { $regex: search, $options: "i" } },
+    ];
+  }
+
+  const jobs = await Job.find(queryObject);
   res.status(StatusCodes.OK).json({ jobs });
 };
 
