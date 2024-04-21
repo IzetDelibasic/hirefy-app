@@ -13,8 +13,6 @@ export const getAllJobs = async (req, res) => {
   const { search, jobStatus, jobType, sort } = req.query;
   const queryObject = {
     createdBy: req.user.userId,
-    jobStatus,
-    jobType,
   };
 
   if (search) {
@@ -24,11 +22,11 @@ export const getAllJobs = async (req, res) => {
     ];
   }
 
-  if (jobStatus && jobStatus === "all") {
+  if (jobStatus && jobStatus !== "all") {
     queryObject.jobStatus = jobStatus;
   }
 
-  if (jobType && jobType === "all") {
+  if (jobType && jobType !== "all") {
     queryObject.jobType = jobType;
   }
 
@@ -41,8 +39,23 @@ export const getAllJobs = async (req, res) => {
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
 
-  const jobs = await Job.find(queryObject);
-  res.status(StatusCodes.OK).json({ jobs });
+  // -Pagination-
+
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
+  const jobs = await Job.find(queryObject)
+    .sort(sortKey)
+    .skip(skip)
+    .limit(limit);
+
+  const totalJobs = await Job.countDocuments(queryObject);
+  const numOfPages = Math.ceil(totalJobs / limit);
+
+  res
+    .status(StatusCodes.OK)
+    .json({ totalJobs, numOfPages, currentPage: page, jobs });
 };
 
 export const createJob = async (req, res) => {
