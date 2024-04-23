@@ -7,29 +7,37 @@ import customFetch from "../../utils/customFetch";
 import JobsContainer from "../JobsContainer/JobsContainer";
 import SearchForm from "../SearchForm/SearchForm";
 
+export const loader = async () => {
+  const params = Object.fromEntries(
+    new URL(window.location.href).searchParams.entries()
+  );
+  try {
+    const { data } = await customFetch.get("/jobs", {
+      params,
+    });
+    return { data };
+  } catch (error) {
+    toast.error(error.response.data.msg);
+    return error;
+  }
+};
+
 const AllJobsContext = createContext();
 
 const JobsPage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const loader = async () => {
-    try {
-      const params = new URL(window.location.href).searchParams;
-      const { data } = await customFetch.get("/jobs", {
-        params: Object.fromEntries(params),
-      });
-
-      setData(data);
-      setLoading(false);
-    } catch (error) {
-      toast.error(error.response.data.msg);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    loader();
+    const fetchData = async () => {
+      setLoading(true);
+      const result = await loader();
+      if (result.data) {
+        setData(result.data);
+      }
+      setLoading(false);
+    };
+    fetchData();
   }, []);
 
   if (loading) {

@@ -40,12 +40,20 @@ const SearchForm = () => {
             list={[...Object.values(JOB_SORT_BY)]}
           />
         </div>
-        <Link
-          to="/dashboard/jobs-page"
-          className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 "
-        >
-          Reset
-        </Link>
+        <div className="flex flex-col md:flex-row">
+          <Link
+            to="/dashboard/jobs-page"
+            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 my-2 md:my-0 md:mr-2"
+          >
+            Reset
+          </Link>
+          <button
+            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 "
+            type="submit"
+          >
+            <div className="">Submit</div>
+          </button>
+        </div>
       </Form>
     </div>
   );

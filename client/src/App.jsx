@@ -23,6 +23,7 @@ import { action as editJobAction } from "./components/EditJobs/EditJobs";
 import { loader as adminLoader } from "./components/Admin/Admin";
 import { action as profileAction } from "./components/ProfilePage/ProfilePage";
 import { loader as statsLoader } from "./components/StatsPage/StatsPage";
+import { loader as jobsLoader } from "./components/JobsPage/JobsPage";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "true";
@@ -76,6 +77,7 @@ const router = createBrowserRouter([
           {
             path: "jobs-page",
             element: <JobsPage />,
+            loader: jobsLoader,
           },
           {
             path: "edit-job/:id",
