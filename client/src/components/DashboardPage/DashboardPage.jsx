@@ -57,7 +57,13 @@ const DashboardPage = () => {
         isDarkTheme,
       }}
     >
-      <div className="bg-gray-200 min-h-screen flex flex-col">
+      <div
+        className={
+          isDarkTheme
+            ? "bg-gray-600 min-h-screen flex flex-col"
+            : "bg-gray-200 min-h-screen flex flex-col"
+        }
+      >
         <Sidebar />
         <Navbar />
         <div className="">

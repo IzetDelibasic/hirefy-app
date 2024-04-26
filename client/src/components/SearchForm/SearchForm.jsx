@@ -37,8 +37,8 @@ const SearchForm = ({ setSearchValues }) => {
   const resetJobFilters = async () => {
     try {
       const { data } = await customFetch.get("/jobs");
-      toast.success("Job filters reset");
       window.location.reload();
+      toast.success("Job filters reset");
       return { data };
     } catch (error) {
       toast.error("Problem with resetting job filters");
@@ -48,7 +48,7 @@ const SearchForm = ({ setSearchValues }) => {
 
   return (
     <div>
-      <form
+      <Form
         onSubmit={handleSubmit}
         className="flex flex-col items-center bg-blue-400 bg-opacity-80 w-[70%] mx-auto my-4 rounded-lg font-montserrat p-4 shadow-lg"
       >
@@ -95,7 +95,7 @@ const SearchForm = ({ setSearchValues }) => {
             Reset
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 };

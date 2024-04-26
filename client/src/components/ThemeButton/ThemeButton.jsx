@@ -10,12 +10,16 @@ const ThemeButton = () => {
   return (
     <div
       onClick={toggleDarkTheme}
-      className="flex items-center justify-center bg-gray-100 border-2 border-blue-600 p-2 rounded-[30px] w-[3rem]"
+      className={
+        isDarkTheme
+          ? "flex items-center justify-center bg-neutral-200 border-2 border-blue-600 p-2 rounded-[30px] w-[3rem]"
+          : "flex items-center justify-center bg-neutral-300 border-2 border-blue-600 p-2 rounded-[30px] w-[3rem]"
+      }
     >
       {isDarkTheme ? (
-        <BsFillMoonFill className="text-blue-800" />
-      ) : (
         <BsFillSunFill className="text-blue-800" />
+      ) : (
+        <BsFillMoonFill className="text-blue-600" />
       )}
     </div>
   );

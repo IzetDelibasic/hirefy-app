@@ -16,8 +16,8 @@ const Navbar = () => {
     <div
       className={
         isDarkTheme
-          ? "h-[4rem] flex justify-center bg-white border-b-[1px] border-gray-300"
-          : "h-[4rem] flex justify-center bg-gray-800 border-b-[1px] border-gray-300"
+          ? "h-[4rem] flex justify-center bg-gray-800 border-b-[1px] border-gray-600"
+          : "h-[4rem] flex justify-center bg-white border-b-[1px] border-gray-300"
       }
     >
       <div className="w-[90%] flex items-center justify-between mx-auto">
