@@ -44,6 +44,8 @@ export { default as NavLinks } from "./NavLinks/NavLinks";
 
 export { default as ProfilePage } from "./ProfilePage/ProfilePage";
 
+export { default as PageButtonContainer } from "./PageButtonContainer/PageButtonContainer";
+
 export { default as RegisterPage } from "./RegisterPage/RegisterPage";
 
 export { default as StatsPage } from "./StatsPage/StatsPage";
