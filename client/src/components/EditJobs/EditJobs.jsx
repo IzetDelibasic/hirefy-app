@@ -39,10 +39,10 @@ const EditJobs = () => {
   return (
     <Form
       method="patch"
-      className="bg-gray-100 flex flex-col items-center justify-center p-10 mx-auto w-[80%] mt-[12rem] rounded-[0.6rem] shadow-lg"
+      className="bg-gray-100 flex flex-col items-center justify-center p-10 mx-auto w-[80%] md:mt-[12rem] mt-[6rem] rounded-[0.6rem] shadow-lg"
     >
       <div className="text-[24px] font-montserrat">Add jobs</div>
-      <div className="grid grid-cols-3">
+      <div className="md:grid md:grid-cols-3 flex flex-col items-center justify-center">
         <FormRow type="text" name="position" defaultValue={job.position} />
         <FormRow type="text" name="company" defaultValue={job.company} />
         <FormRow
@@ -64,10 +64,10 @@ const EditJobs = () => {
           list={Object.values(JOB_TYPE)}
         />
         <button
-          className={`w-[80%] relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1]`}
+          className="w-[60%] relative bg-blue-500 text-white font-medium py-[0.5rem] mr-0 my-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1]"
           type="submit"
         >
-          <div className="">Edit job</div>
+          <div className="">Add job</div>
           <div className="absolute inset-0 bg-black w-full transform origin-right transition-transform duration-300 group-hover:scale-x-0 z-[-1]"></div>
         </button>
       </div>

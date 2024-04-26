@@ -1,5 +1,6 @@
 // -React-
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"; // Add this line
 import { toast } from "react-toastify";
 // -Utils-
 import customFetch from "../../utils/customFetch";
@@ -25,18 +26,22 @@ const JobsPage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchValues, setSearchValues] = useState({});
+  const { search } = useLocation();
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await loader(searchValues);
+      const result = await loader({
+        ...searchValues,
+        page: new URLSearchParams(search).get("page"),
+      });
       if (result.data) {
         setData(result.data);
       }
       setLoading(false);
     };
     fetchData();
-  }, [searchValues]);
+  }, [searchValues, search]);
 
   if (loading) {
     return <div>Loading...</div>;

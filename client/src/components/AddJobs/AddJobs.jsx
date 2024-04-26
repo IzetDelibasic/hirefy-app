@@ -75,7 +75,7 @@ const AddJobs = () => {
   return (
     <Form
       method="post"
-      className="bg-gray-100 flex flex-col items-center justify-center p-10 mx-auto w-[80%] mt-[12rem] rounded-[0.6rem] shadow-lg"
+      className="bg-gray-100 flex flex-col items-center justify-center p-10 mx-auto w-[80%] md:mt-[12rem] mt-[6rem] rounded-[0.6rem] shadow-lg"
       onSubmit={handleSubmit}
     >
       <div className="text-[24px] font-montserrat">Add jobs</div>
@@ -101,7 +101,7 @@ const AddJobs = () => {
           list={Object.values(JOB_TYPE)}
         />
         <button
-          className={`w-[80%] relative bg-blue-500 text-white font-medium py-[1rem] px-[3.5rem] md:px-[4rem] lg:px-[5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
+          className={`w-[60%] relative bg-blue-500 text-white font-medium py-[0.5rem] mr-0 my-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] ${
             !formValid && "opacity-50 cursor-not-allowed"
           }`}
           type="submit"

@@ -29,7 +29,7 @@ const Navbar = () => {
           {/* <img src={logoImage} alt="Logo" className="w-[32px] h-[32px]" /> */}
           <div className="text-3xl font-montserrat text-blue-500">Hirefy</div>
         </div>
-        <div className="w-[10rem] flex justify-between">
+        <div className="w-[11rem] flex justify-between">
           <ThemeButton />
           <LogOutButton logoutUser={logoutUser} />
         </div>
