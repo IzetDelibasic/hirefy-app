@@ -7,13 +7,10 @@ import customFetch from "../../utils/customFetch";
 import JobsContainer from "../JobsContainer/JobsContainer";
 import SearchForm from "../SearchForm/SearchForm";
 
-export const loader = async () => {
-  const params = Object.fromEntries(
-    new URL(window.location.href).searchParams.entries()
-  );
+export const loader = async (searchValues) => {
   try {
     const { data } = await customFetch.get("/jobs", {
-      params,
+      params: searchValues,
     });
     return { data };
   } catch (error) {
@@ -27,18 +24,19 @@ const AllJobsContext = createContext();
 const JobsPage = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchValues, setSearchValues] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const result = await loader();
+      const result = await loader(searchValues);
       if (result.data) {
         setData(result.data);
       }
       setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [searchValues]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -46,7 +44,7 @@ const JobsPage = () => {
 
   return (
     <AllJobsContext.Provider value={data}>
-      <SearchForm />
+      <SearchForm setSearchValues={setSearchValues} />
       <JobsContainer />
     </AllJobsContext.Provider>
   );
