@@ -40,7 +40,17 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(
   cors({
-    origin: "*",
+    origin: function (origin, callback) {
+      const whitelist = [
+        "https://hirefy-app.onrender.com",
+        "http://localhost:5173",
+      ];
+      if (whitelist.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
