@@ -24,7 +24,7 @@ const StatsContainer = ({ defaultStats }) => {
     },
   ];
   return (
-    <div className="flex w-[90%] mx-auto">
+    <div className="flex lg:flex-row flex-col justify-center items-center w-full mx-auto mt-4">
       {stats.map((item) => {
         return <StatItem key={item.title} {...item} />;
       })}

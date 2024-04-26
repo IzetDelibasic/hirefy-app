@@ -18,12 +18,12 @@ export const loader = async () => {
 const StatsPage = () => {
   const { defaultStats, monthlyApplications } = useLoaderData();
   return (
-    <>
+    <div className="lg:mt-20">
       <StatsContainer defaultStats={defaultStats} />
       {monthlyApplications?.length > 0 && (
         <ChartsContainer data={monthlyApplications} />
       )}
-    </>
+    </div>
   );
 };
 
