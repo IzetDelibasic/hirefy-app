@@ -17,8 +17,6 @@ import errorHandleMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from "./middleware/authMiddleware.js";
 // -Cookies-
 import cookieParser from "cookie-parser";
-// -Cors-
-import cors from "cors";
 // -Public-
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -38,24 +36,6 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      const whitelist = [
-        "https://hirefy-app.onrender.com",
-        "http://localhost:5173",
-        "http://localhost:5100",
-        "http://localhost:10000",
-      ];
-      if (whitelist.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
 app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use(cookieParser());
 app.use(express.json());
