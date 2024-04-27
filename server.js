@@ -45,6 +45,7 @@ app.use(
         "https://hirefy-app.onrender.com",
         "http://localhost:5173",
         "http://localhost:5100",
+        "http://localhost:10000",
       ];
       if (whitelist.indexOf(origin) !== -1 || !origin) {
         callback(null, true);
