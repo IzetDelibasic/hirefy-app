@@ -53,7 +53,7 @@ const SearchForm = ({ setSearchValues }) => {
         className="flex flex-col items-center bg-blue-400 bg-opacity-80 w-[70%] mx-auto my-4 rounded-lg font-montserrat p-4 shadow-lg"
       >
         <div className="font-normal text-[24px]">Search form</div>
-        <div className="flex flex-col justify-start items-start md:flex-row w-[90%]">
+        <div className="flex flex-col justify-center lg:justify-start items-start lg:flex-row w-[90%]">
           <FormRow
             type="search"
             name="search"
@@ -81,16 +81,16 @@ const SearchForm = ({ setSearchValues }) => {
             onChange={handleChange}
           />
         </div>
-        <div className="flex justify-center">
+        <div className="flex lg:flex-row flex-col justify-center">
           <button
             type="submit"
-            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 my-2 md:my-0 md:mr-2"
+            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 my-2 lg:my-0 md:mr-2"
           >
             Search
           </button>
           <button
             onClick={resetJobFilters}
-            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 my-2 md:my-0 md:mr-2"
+            className="bg-gray-900 text-white hover:bg-sky-300 hover:text-black ease-in-out duration-300 rounded-2xl px-[4rem] py-2 my-2 lg:my-0 md:mr-2"
           >
             Reset
           </button>

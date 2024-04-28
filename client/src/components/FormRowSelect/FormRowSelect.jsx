@@ -6,7 +6,7 @@ const FormRowSelect = ({
   onChange,
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center w-[90%] font-montserrat">
+    <div className="flex flex-col justify-center items-center w-[90%] font-montserrat mx-auto">
       <label htmlFor={name}>{labelText || name}</label>
       <select
         name={name}
