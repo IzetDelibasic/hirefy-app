@@ -38,7 +38,7 @@ const Button = ({
         <IconComponent className={`${iconClassName} text-20px`} />
       )}
       {!onlyIcon && !Icon && (
-        <span className={`${titleClassName} text-[17px]`}>{title}</span>
+        <span className={`${titleClassName} text-[15px]`}>{title}</span>
       )}
       {Icon && title && !onlyIcon && (
         <>
