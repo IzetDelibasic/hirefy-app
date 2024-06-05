@@ -15,9 +15,9 @@ const PageBtnContainer = () => {
   };
 
   return (
-    <div className="flex justify-between items-center font-montserrat w-[40%] my-10">
+    <div className="flex flex-col sm:flex-row justify-between items-center font-montserrat my-10 md:w-[40%]">
       <button
-        className=""
+        className="text-gray-200 flex flex-col justify-center items-center"
         onClick={() => {
           let prevPage = currentPage - 1;
           if (prevPage < 1) prevPage = numOfPages;
@@ -25,12 +25,12 @@ const PageBtnContainer = () => {
         }}
       >
         <HiChevronDoubleLeft />
-        Prev
+        <div>Prev</div>
       </button>
       <div className="flex flex-row justify-between">
         {pages.map((pageNumber) => (
           <button
-            className="text-gray-500 mx-2"
+            className="text-white mx-2"
             key={pageNumber}
             onClick={() => handlePageChange(pageNumber)}
           >
@@ -39,7 +39,7 @@ const PageBtnContainer = () => {
         ))}
       </div>
       <button
-        className=""
+        className="text-gray-200 flex flex-col justify-center items-center"
         onClick={() => {
           let nextPage = currentPage + 1;
           if (nextPage > numOfPages) nextPage = 1;
@@ -47,7 +47,7 @@ const PageBtnContainer = () => {
         }}
       >
         <HiChevronDoubleRight />
-        Next
+        <div>Next</div>
       </button>
     </div>
   );

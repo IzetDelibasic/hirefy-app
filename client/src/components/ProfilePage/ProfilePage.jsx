@@ -43,7 +43,7 @@ const ProfilePage = () => {
         onSubmit={action}
         className="max-w-md lg:max-w-xl mx-auto mt-4 font-montserrat"
       >
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="bg-white w-[95%] mx-auto shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-6">
             <div className="text-xl font-medium mb-2 text-center">
               {name} - Profile

@@ -8,7 +8,7 @@ const LandingPageAction = () => {
     <div className="flex flex-col items-center justify-center md:flex-row md:justify-center md:w-[30rem] lg:w-full w-[90%] mx-auto md:mx-0">
       <Link to="/register">
         <CustomButton
-          className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2.5rem] px-[3.5rem] md:px-[1.5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1] whitespace-nowrap overflow-hidden text-ellipsis"
+          className="relative bg-blue-500 text-white font-medium lg:py-[1.2rem] py-[1rem] lg:px-[2.5rem] px-[3.5rem] md:px-[1.5rem] mr-0 mb-[20px] md:mb-0 rounded-[3rem] group z-[1] whitespace-nowrap overflow-hidden text-ellipsis"
           iconClassName="group-hover:text-white ml-[10px]"
           title="Deep In Adventure"
           titleClassName="group-hover:text-white font-subtitle whitespace-nowrap overflow-hidden text-ellipsis"
