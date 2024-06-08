@@ -64,7 +64,7 @@ const EditJobs = () => {
           list={Object.values(JOB_TYPE)}
         />
         <button
-          className="w-[60%] relative bg-blue-500 text-white font-medium py-[0.5rem] mr-0 my-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1]"
+          className="md:w-[70%] w-[80%] ml-6 lg:ml-10 relative bg-blue-500 text-white font-medium py-[0.5rem] mr-0 my-[20px] md:mb-0 rounded-[3rem] group overflow-hidden z-[1]"
           type="submit"
         >
           <div className="">Add job</div>

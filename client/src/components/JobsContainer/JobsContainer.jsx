@@ -24,7 +24,7 @@ const JobsContainer = () => {
         {totalJobs} job{jobs.length > 1 && "s"} found
       </h1>
 
-      <div className="flex lg:grid lg:grid-cols-3 flex-col justify-center items-center">
+      <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3  flex-col justify-center items-center w-full">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
         })}

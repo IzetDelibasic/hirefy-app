@@ -1,8 +1,11 @@
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAllJobsContext } from "../JobsPage/JobsPage";
+import { checkDefaultTheme } from "../../App";
+import { useState } from "react";
 
 const PageBtnContainer = () => {
+  const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
   const { numOfPages, currentPage } = useAllJobsContext();
   const { search, pathname } = useLocation();
   const navigate = useNavigate();
@@ -17,7 +20,11 @@ const PageBtnContainer = () => {
   return (
     <div className="flex flex-col sm:flex-row justify-between items-center font-montserrat my-10 md:w-[40%]">
       <button
-        className="text-gray-200 flex flex-col justify-center items-center"
+        className={
+          isDarkTheme
+            ? "text-gray-200 flex flex-col justify-center items-center"
+            : "text-gray-600 flex flex-col justify-center items-center"
+        }
         onClick={() => {
           let prevPage = currentPage - 1;
           if (prevPage < 1) prevPage = numOfPages;
@@ -30,7 +37,9 @@ const PageBtnContainer = () => {
       <div className="flex flex-row justify-between">
         {pages.map((pageNumber) => (
           <button
-            className="text-white mx-2"
+            className={
+              isDarkTheme ? "text-gray-200 mx-2" : "text-gray-600 mx-2"
+            }
             key={pageNumber}
             onClick={() => handlePageChange(pageNumber)}
           >
@@ -39,7 +48,11 @@ const PageBtnContainer = () => {
         ))}
       </div>
       <button
-        className="text-gray-200 flex flex-col justify-center items-center"
+        className={
+          isDarkTheme
+            ? "text-gray-200 flex flex-col justify-center items-center"
+            : "text-gray-600 flex flex-col justify-center items-center"
+        }
         onClick={() => {
           let nextPage = currentPage + 1;
           if (nextPage > numOfPages) nextPage = 1;
