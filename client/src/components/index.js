@@ -34,6 +34,8 @@ export { default as LandingPage } from "./LandingPage/LandingPage";
 
 export { default as LandingPageAction } from "./LandingPageAction/LandingPageAction";
 
+export { default as Loading } from "./Loading/Loading";
+
 export { default as LoginPage } from "./LoginPage/LoginPage";
 
 export { default as LogOutButton } from "./LogoutButton/LogoutButton";

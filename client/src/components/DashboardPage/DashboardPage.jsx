@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // -Components-
-import { Navbar, Sidebar } from "..";
+import { Navbar, Sidebar, Loading } from "..";
 // -Utils-
 import customFetch from "../../utils/customFetch";
 import { checkDefaultTheme } from "../../App";
@@ -15,6 +15,7 @@ const DashboardPage = () => {
   const [showSmallSidebar, setShowSmallSidebar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDefaultTheme);
   const navigate = useNavigate();
+  const isPageLoading = navigate.state === "Loading";
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -67,7 +68,7 @@ const DashboardPage = () => {
         <Sidebar />
         <Navbar />
         <div className="">
-          <Outlet context={{ user }} />
+          {isPageLoading ? <Loading /> : <Outlet context={{ user }} />}
         </div>
       </div>
     </DashboardContext.Provider>
